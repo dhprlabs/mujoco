@@ -1,0 +1,70 @@
+<?xml version="1.0" ?>
+<!-- Generated using onshape-to-robot -->
+<!-- Onshape https://cad.onshape.com/documents/6139d43a54a64ec07762e076/w/6cc08108d560ea539e807943/e/832e5f3e45d53e6c934b467c -->
+<mujoco model="C:\Users\Dhairya\Desktop\Local\Mujoco-Tutorials\Diff-Drive\my-robot">
+  <compiler angle="radian" meshdir="assets" autolimits="true"/>
+  <default>
+    <default class="C:\Users\Dhairya\Desktop\Local\Mujoco-Tutorials\Diff-Drive\my-robot">
+      <joint frictionloss="0.1" armature="0.005"/>
+      <position kp="50" dampratio="1"/>
+      <default class="visual">
+        <geom type="mesh" contype="0" conaffinity="0" group="2"/>
+      </default>
+      <default class="collision">
+        <geom group="3"/>
+      </default>
+    </default>
+  </default>
+  <worldbody>
+    <!-- Link base_link -->
+    <body name="base_link" pos="0 0 0" quat="1 0 0 0" childclass="C:\Users\Dhairya\Desktop\Local\Mujoco-Tutorials\Diff-Drive\my-robot">
+      <freejoint name="base_link_freejoint"/>
+      <inertial pos="-0.100694 0.019483 0.0261965" mass="1.02327" fullinertia="0.00134685 0.00253156 0.00353706 -2.30927e-19 7.74327e-20 -2.93334e-19"/>
+      <!-- Part base_link -->
+      <geom type="mesh" class="visual" pos="-0.100694 0.019483 0.00369646" quat="1 0 0 0" mesh="base_link" material="base_link_material"/>
+      <geom type="mesh" class="collision" pos="-0.100694 0.019483 0.00369646" quat="1 0 0 0" mesh="base_link" material="base_link_material"/>
+      <!-- Link right_wheel_link -->
+      <body name="right_wheel_link" pos="-0.0171939 -0.00551701 0.0261965" quat="0.707107 -3.4953e-09 -0.707107 3.4953e-09">
+        <!-- Joint from base_link to right_wheel_link -->
+        <joint axis="0 0 1" name="right_wheel"/>
+        <inertial pos="1.02484e-35 -1.99922e-18 -0.0115" mass="0.0925064" fullinertia="3.21864e-05 3.21864e-05 5.63094e-05 3.53274e-29 2.82403e-37 4.65762e-38"/>
+        <!-- Part right_wheel_link -->
+        <geom type="mesh" class="visual" pos="0 8.67362e-19 0" quat="0.707107 0.707107 -0 -1.62993e-25" mesh="right_wheel_link" material="right_wheel_link_material"/>
+        <geom type="mesh" class="collision" pos="0 8.67362e-19 0" quat="0.707107 0.707107 -0 -1.62993e-25" mesh="right_wheel_link" material="right_wheel_link_material"/>
+      </body>
+      <!-- Link left_wheel_link -->
+      <body name="left_wheel_link" pos="-0.209194 -0.00551701 0.0261965" quat="0.707107 -9.96252e-15 -0.707107 9.94213e-15">
+        <!-- Joint from base_link to left_wheel_link -->
+        <joint axis="0 0 1" name="left_wheel"/>
+        <inertial pos="0 -1.13186e-18 -0.0115" mass="0.0925064" fullinertia="3.21864e-05 3.21864e-05 5.63094e-05 0 0 9.91523e-38"/>
+        <!-- Part left_wheel_link -->
+        <geom type="mesh" class="visual" pos="0 1.73472e-18 0" quat="0.707107 0.707107 -0 -0" mesh="left_wheel_link" material="left_wheel_link_material"/>
+        <geom type="mesh" class="collision" pos="0 1.73472e-18 0" quat="0.707107 0.707107 -0 -0" mesh="left_wheel_link" material="left_wheel_link_material"/>
+      </body>
+      <!-- Link caster_wheel_link -->
+      <body name="caster_wheel_link" pos="-0.100694 0.063483 0.00369646" quat="1 -3.5646e-18 3.33067e-16 -3.747e-16">
+        <!-- Joint from base_link to caster_wheel_link -->
+        <!-- Joint is "fixed", skipping it -->
+        <inertial pos="2.59775e-51 -8.18803e-19 -0.00791667" mass="0.0111542" fullinertia="8.14491e-07 8.14491e-07 1.08754e-06 5.843e-40 -1.07256e-39 -7.33066e-40"/>
+        <!-- Part caster_wheel_link -->
+        <geom type="mesh" class="visual" pos="0 0 0" quat="0.707107 0.707107 -0 -4.65575e-34" mesh="caster_wheel_link" material="caster_wheel_link_material"/>
+        <geom type="mesh" class="collision" pos="0 0 0" quat="0.707107 0.707107 -0 -4.65575e-34" mesh="caster_wheel_link" material="caster_wheel_link_material"/>
+      </body>
+    </body>
+  </worldbody>
+  <asset>
+    <mesh file="base_link.stl"/>
+    <mesh file="caster_wheel_link.stl"/>
+    <mesh file="left_wheel_link.stl"/>
+    <mesh file="right_wheel_link.stl"/>
+    <material name="base_link_material" rgba="0.972549 0.529412 0.00392157 1"/>
+    <material name="right_wheel_link_material" rgba="0.615686 0.811765 0.929412 1"/>
+    <material name="left_wheel_link_material" rgba="0.615686 0.811765 0.929412 1"/>
+    <material name="caster_wheel_link_material" rgba="0.866667 0.321569 0.156863 1"/>
+  </asset>
+  <actuator>
+    <position class="C:\Users\Dhairya\Desktop\Local\Mujoco-Tutorials\Diff-Drive\my-robot" name="right_wheel" joint="right_wheel"/>
+    <position class="C:\Users\Dhairya\Desktop\Local\Mujoco-Tutorials\Diff-Drive\my-robot" name="left_wheel" joint="left_wheel"/>
+  </actuator>
+  <equality/>
+</mujoco>
